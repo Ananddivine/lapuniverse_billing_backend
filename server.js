@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const fs = require("fs");
 const path = require("path");
+const invoiceRoutes = require("./routes/invoiceRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -24,6 +25,7 @@ if (!fs.existsSync(invoiceDir)) {
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/invoices", invoiceRoutes);
 
 // Routes
 app.use("/api/invoices", require("./routes/invoiceRoutes"));

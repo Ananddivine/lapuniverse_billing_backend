@@ -4,6 +4,8 @@ const invoiceSchema = new mongoose.Schema(
   {
     invoiceNumber: String,
     customerName: String,
+    customerEmail: String,
+    customerNumber: String,
     gstNumber: String,
     taxPercent: Number,
     products: [
